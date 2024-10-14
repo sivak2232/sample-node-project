@@ -7,7 +7,7 @@ pipeline {
                 echo 'Cloning the code from GitHub'
 				sh'''
 				
-				git clone https://github.com/sairammagham/sample-node-project.git
+				git clone https://github.com/sivak2232/sample-node-project.git
 				'''
             }
         }
@@ -18,7 +18,7 @@ pipeline {
 				sh'''
 				
 				cd sample-node-project
-				sudo docker build -t rams3/nodejs:latest .
+				sudo docker build -t siva2232/nodeproject:latest .
 				sudo docker images
 				
 				'''
@@ -29,8 +29,8 @@ pipeline {
             steps {
                 echo 'docker run '
                 sh '''
-                sudo docker push rams3/nodejs:latest
-                sudo docker run -d -p 8083:3005 --name samplenode rams3/nodejs:latest
+                sudo docker push siva2232/nodeproject:latest
+                sudo docker run -d -p 8083:3005 --name sivanode siva2232/nodeproject:latest
                 sudo docker ps
                 '''
             }
